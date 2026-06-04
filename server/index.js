@@ -9,11 +9,31 @@ const cors = require('cors');
 const PORT = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET || 'luxewood-dev-secret';
 const DATABASE_URL = process.env.DATABASE_URL;
+const PGHOST = process.env.PGHOST;
+const PGUSER = process.env.PGUSER;
+const PGPASSWORD = process.env.PGPASSWORD;
+const PGDATABASE = process.env.PGDATABASE;
+const PGPORT = process.env.PGPORT;
 
-const pool = new Pool({
-  connectionString: DATABASE_URL || undefined,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
-});
+const dbConfig = {};
+if (DATABASE_URL) {
+  dbConfig.connectionString = DATABASE_URL;
+} else if (PGHOST || PGUSER || PGPASSWORD || PGDATABASE || PGPORT) {
+  if (PGHOST) dbConfig.host = PGHOST;
+  if (PGUSER) dbConfig.user = PGUSER;
+  if (PGPASSWORD) dbConfig.password = PGPASSWORD;
+  if (PGDATABASE) dbConfig.database = PGDATABASE;
+  if (PGPORT) dbConfig.port = Number(PGPORT);
+} else {
+  console.error('Missing PostgreSQL configuration. Set DATABASE_URL or PGHOST/PGUSER/PGPASSWORD/PGDATABASE/PGPORT.');
+  process.exit(1);
+}
+
+if (process.env.NODE_ENV === 'production') {
+  dbConfig.ssl = { rejectUnauthorized: false };
+}
+
+const pool = new Pool(dbConfig);
 const app = express();
 
 app.use(cors());
