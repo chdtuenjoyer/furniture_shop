@@ -8,9 +8,12 @@ const cors = require('cors');
 
 const PORT = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET || 'luxewood-dev-secret';
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://postgres:20052612s@localhost:5432/furniture_shop';
+const DATABASE_URL = process.env.DATABASE_URL;
 
-const pool = new Pool({ connectionString: DATABASE_URL });
+const pool = new Pool({
+  connectionString: DATABASE_URL || undefined,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
+});
 const app = express();
 
 app.use(cors());
@@ -389,7 +392,7 @@ app.post('/api/orders', authorize, async (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('/{*path}', (req, res) => {
+  app.get('*', (req, res) => {
     if (req.path.startsWith('/api/')) {
       return res.status(404).json({ error: 'Not found' });
     }
