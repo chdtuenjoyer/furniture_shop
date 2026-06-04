@@ -1,0 +1,158 @@
+/* ─── CSS Variables ─────────────────────────────── */
+:root {
+  --clr-bg: #0d0a14;
+  --clr-bg2: #13101e;
+  --clr-surface: #1a1528;
+  --clr-surface2: #221c35;
+  --clr-border: rgba(139, 92, 246, 0.18);
+  --clr-border-hover: rgba(139, 92, 246, 0.45);
+
+  --clr-purple-900: #2e1065;
+  --clr-purple-700: #6b21a8;
+  --clr-purple-500: #8b5cf6;
+  --clr-purple-400: #a78bfa;
+  --clr-purple-300: #c4b5fd;
+  --clr-purple-100: #ede9fe;
+
+  --clr-accent: #e879f9;
+  --clr-accent2: #818cf8;
+
+  --clr-text: #f1eeff;
+  --clr-text-muted: #9d94c4;
+  --clr-text-faint: #5c5480;
+
+  --gradient-main: linear-gradient(135deg, #6b21a8 0%, #4f46e5 50%, #7c3aed 100%);
+  --gradient-card: linear-gradient(145deg, rgba(139,92,246,0.12) 0%, rgba(79,70,229,0.06) 100%);
+  --gradient-hero: radial-gradient(ellipse at 60% 0%, rgba(139,92,246,0.35) 0%, transparent 65%),
+                   radial-gradient(ellipse at 10% 80%, rgba(233,121,249,0.2) 0%, transparent 55%),
+                   linear-gradient(180deg, #0d0a14 0%, #13101e 100%);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.45), 0 1px 0 rgba(139,92,246,0.15) inset;
+  --shadow-glow: 0 0 40px rgba(139,92,246,0.25);
+
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Reset & Base ──────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+ul { list-style: none; }
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-bg2); }
+::-webkit-scrollbar-thumb { background: var(--clr-purple-700); border-radius: 3px; }
+
+/* ─── Utility ───────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--gradient-main);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,92,246,0.55);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--clr-purple-300);
+  border: 1px solid var(--clr-border-hover);
+}
+.btn-outline:hover {
+  background: rgba(139,92,246,0.12);
+  border-color: var(--clr-purple-400);
+  color: var(--clr-purple-100);
+}
+
+.btn-ghost {
+  background: rgba(139,92,246,0.1);
+  color: var(--clr-purple-300);
+  border: 1px solid var(--clr-border);
+}
+.btn-ghost:hover {
+  background: rgba(139,92,246,0.2);
+  color: var(--clr-text);
+}
+
+/* ─── Page Fade-in ──────────────────────────────── */
+.page-enter {
+  animation: fadeUp 0.45s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Section Title ─────────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.section-title span {
+  background: linear-gradient(90deg, var(--clr-purple-400), var(--clr-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow Orb ──────────────────────────────────── */
+.orb {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+}

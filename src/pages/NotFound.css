@@ -1,0 +1,48 @@
+.notfound {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 80px 24px;
+}
+
+.notfound__orb {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(139,92,246,0.3), transparent 60%);
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+}
+
+.notfound__code {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 15vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #6b21a8, #8b5cf6, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.6;
+}
+
+.notfound__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+}
+
+.notfound__text {
+  color: var(--clr-text-muted);
+  line-height: 1.75;
+  max-width: 380px;
+}
