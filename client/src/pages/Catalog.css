@@ -62,8 +62,6 @@
   cursor: pointer;
   padding: 4px;
   transition: color 0.2s;
-  /* align with input max-width */
-  left: 488px;
 }
 
 .catalog__count {
@@ -97,6 +95,8 @@
 @media (max-width: 768px) {
   .catalog { padding-top: 100px; }
   .catalog__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .catalog__search { max-width: 100%; }
+  .catalog__search-clear { right: 16px; }
 }
 
 @media (max-width: 480px) {

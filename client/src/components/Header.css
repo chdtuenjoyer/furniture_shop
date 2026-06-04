@@ -21,6 +21,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  justify-content: space-between;
 }
 
 /* ── Logo ── */
@@ -152,6 +153,10 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .header__inner {
+    gap: 16px;
+    padding: 0 16px;
+  }
   .header__burger { display: flex; }
 
   .header__nav {
@@ -183,4 +188,5 @@
     padding: 12px 16px;
     font-size: 1rem;
   }
+  .header__actions { gap: 6px; }
 }

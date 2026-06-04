@@ -218,4 +218,6 @@
   .auth-form { padding: 28px 20px; }
   .profile-dash__hero { flex-direction: column; text-align: center; }
   .profile-dash__cards { grid-template-columns: 1fr 1fr; }
+  .profile-dash__orders { padding: 20px; }
+  .profile-dash__hero { gap: 18px; }
 }

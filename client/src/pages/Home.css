@@ -224,6 +224,7 @@
 
 @media (max-width: 768px) {
   .hero__content { grid-template-columns: 1fr; padding-top: 40px; }
+  .hero__content { gap: 32px; }
   .hero__visual { display: none; }
   .features { grid-template-columns: 1fr 1fr; margin-top: 40px; }
   .featured__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -233,4 +234,7 @@
 @media (max-width: 480px) {
   .features { grid-template-columns: 1fr; }
   .featured__grid { grid-template-columns: 1fr; }
+  .hero__title { font-size: 2.4rem; }
+  .hero__sub { max-width: 100%; }
+  .banner__inner { padding: 30px 20px; }
 }

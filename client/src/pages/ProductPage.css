@@ -121,6 +121,7 @@
   gap: 16px;
   margin-bottom: 14px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .product-page__qty {
@@ -191,4 +192,8 @@
   .product-page { padding-top: 100px; }
   .product-page__layout { grid-template-columns: 1fr; gap: 36px; }
   .product-page__img-wrap { position: static; }
+  .product-page__buy { flex-direction: column; align-items: stretch; }
+  .product-page__qty { width: 100%; justify-content: space-between; }
+  .product-page__qty button { width: 48px; }
+  .product-page__add { min-width: auto; width: 100%; }
 }

@@ -6,7 +6,7 @@
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1.2fr;
   gap: 48px;
   padding: 60px 24px 40px;
 }
@@ -31,8 +31,32 @@
 .footer__tagline {
   color: var(--clr-text-faint);
   font-size: 0.9rem;
-  max-width: 220px;
+  max-width: 240px;
   line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--clr-text);
+  font-size: 0.85rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.footer__social-link:hover {
+  background: rgba(139, 92, 246, 0.23);
+  transform: translateY(-1px);
 }
 
 .footer__links {
@@ -64,6 +88,68 @@
 
 .footer__col a:hover { color: var(--clr-purple-300); }
 
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__contact h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-text-faint);
+}
+
+.footer__contact p {
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer__form {
+  display: grid;
+  gap: 14px;
+}
+
+.footer__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--clr-text-faint);
+}
+
+.footer__field input,
+.footer__field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.footer__field input:focus,
+.footer__field textarea:focus {
+  border-color: var(--clr-purple-300);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.footer__submit {
+  padding: 12px 20px;
+}
+
+.footer__status {
+  color: #86efac;
+  font-size: 0.9rem;
+}
+
 .footer__bottom {
   padding: 20px 24px;
   border-top: 1px solid var(--clr-border);
@@ -71,7 +157,7 @@
   font-size: 0.82rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .footer__inner {
     grid-template-columns: 1fr;
     gap: 32px;
